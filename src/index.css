@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes flipColor {
+  0% {
+    transform: rotateX(0deg);
+    color: #ffffff;
+  }
+  25% {
+    transform: rotateX(90deg);
+    color: #a855f7;
+  }
+  50% {
+    transform: rotateX(180deg);
+    color: #ec4899;
+  }
+  75% {
+    transform: rotateX(270deg);
+    color: #fbbf24;
+  }
+  100% {
+    transform: rotateX(360deg);
+    color: #ffffff;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.animate-smooth-scroll {
+  animation: smoothScroll 25s linear infinite;
+}
+
+.animate-flip {
+  display: inline-block;
+  animation: flipColor 4s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-pulse-glow {
+  animation: pulse 3s ease-in-out infinite;
+}
