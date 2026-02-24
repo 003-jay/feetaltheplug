@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Welcomepage from './Welcomepage'
 import LoadingScreen from './components/LoadingScreen'
 
 function App() {
   const [loading, setLoading] = useState(true)
+  const location = useLocation()
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000)
-  }, [])
+    setLoading(true)
+    const timer = setTimeout(() => setLoading(false), 1500)
+    return () => clearTimeout(timer)
+  }, [location.pathname])
 
   if (loading) return <LoadingScreen />
 
